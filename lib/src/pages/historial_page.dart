@@ -10,7 +10,7 @@ class HistorialPage extends StatelessWidget {
           'Historial',
         ),
       ),
-      body: Text('lalalalala $index'),
+      body: Text('Aqui va el historial de $index'),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prompt_student_mobile/src/pages/historial_page.dart';
+import 'package:prompt_student_mobile/src/pages/home_page.dart';
+import 'package:prompt_student_mobile/src/pages/login_page.dart';
  
 void main() => runApp(MyApp());
  
@@ -7,16 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Prompt Student App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
+      routes: {
+        'login' : (BuildContext context) => LoginPage(),
+        'home' : (BuildContext context) => HomePage(),
+        'historial' : (BuildContext context) => HistorialPage(),
+      },
+      initialRoute: 'login',
     );
   }
 }

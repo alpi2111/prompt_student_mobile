@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -6,33 +7,48 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      //resizeToAvoidBottomInset: false,
+      //resizeToAvoidBottomPadding: false,
+      floatingActionButton: RaisedButton.icon(
+        onPressed: () => Navigator.of(context).pushNamed('home'),
+        label: Text('Iniciar Sesión'),
+        icon: Icon(Icons.input),
+        shape: StadiumBorder(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Stack(
-        alignment: AlignmentDirectional.bottomEnd,
         children: <Widget>[
-          _fondo(),
-          _fondoCirculos(screenSize),
-          _rectAbajo(screenSize),
+          _fondo(screenSize),
           _contenido(screenSize),
-          Transform.translate(
+         /* Transform.translate(
             child: FloatingActionButton(
-              child: Icon(Icons.arrow_forward),
-              onPressed: () => Navigator.of(context).pushNamed('home'),
-              backgroundColor: Colors.cyan,
-              splashColor: Colors.cyanAccent
-            ),
-            offset: Offset(-screenSize.width * 0.05, -screenSize.height * 0.395),
-          )
+                child: Icon(Icons.arrow_forward),
+                onPressed: () => Navigator.of(context).pushNamed('home'),
+                backgroundColor: Colors.cyan,
+                splashColor: Colors.cyanAccent),
+           /* offset:
+                Offset(-screenSize.width * 0.05, -screenSize.height * 0.395),
+          */)*/
         ],
       ),
     );
   }
 
-  Widget _fondo() {
+  Widget _fondo(Size screenSize) {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(color: Colors.cyanAccent.withOpacity(0.1)),
+      child: Stack(
+        alignment: AlignmentDirectional.bottomEnd,
+        //fit: StackFit.loose,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(color: Colors.cyanAccent.withOpacity(0.1)),
+          ),
+          BounceInDown(child: _fondoCirculos(screenSize)),
+          BounceInRight(child: _rectAbajo(screenSize)),
+        ],
+      ),
     );
   }
 

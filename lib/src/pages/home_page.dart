@@ -77,13 +77,13 @@ class _HomePageState extends State<HomePage> {
               maxRadius: screenSize.width * 0.4,
             ),
             Text(
-              'está la escuela',
+              'está en la escuela',
               style: TextStyle(fontSize: 18.0),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                RaisedButton.icon(
+                FlatButton.icon(
                   onPressed: () {
                     Navigator.of(context)
                         .pushNamed('historial', arguments: index);
@@ -91,10 +91,10 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.history),
                   shape: StadiumBorder(),
                   label: Text('Historial de asistencias'),
-                  color: Colors.brown,
+                  //color: Colors.brown,
                   colorBrightness: Brightness.dark,
                 ),
-                RaisedButton.icon(
+                FlatButton.icon(
                   onPressed: null,
                   icon: Icon(Icons.calendar_today),
                   shape: StadiumBorder(),

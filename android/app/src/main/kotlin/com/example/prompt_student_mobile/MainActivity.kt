@@ -1,4 +1,4 @@
-package com.example.prompt_student_mobile
+package com.duotech.prompt_student_mobile
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

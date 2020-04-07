@@ -6,6 +6,8 @@ class HistorialPage extends StatelessWidget {
     final index = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
+        //backgroundColor: Theme.of(context).accentColor,
+        //backgroundColor: Color,
         title: Text(
           'Historial',
         ),

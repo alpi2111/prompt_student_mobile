@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:prompt_student_mobile/src/utils/colors.dart';
 import 'package:prompt_student_mobile/src/widgets/all_widgets.dart';
@@ -214,11 +215,13 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('Tuitulo'),
+      //   elevation: 0.0,
       // ),
       // floatingActionButton: FloatingActionButton(
       //   child: Icon(Icons.ac_unit),
       //   onPressed: () {},
       // ),
+      backgroundColor: purpleLight,
       body: Stack(
         //alignment: AlignmentDirectional.center,
         children: <Widget>[
@@ -236,10 +239,11 @@ class LoginPage extends StatelessWidget {
                     'Iniciar Sesión',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: _textSize + 10.0),
+                        fontSize: _textSize + 10.0,
+                        color: Colors.white),
                   ),
                   SizedBox(height: 30),
-                  MaterialButton(
+                  /*MaterialButton(
                     child: Container(
                       alignment: AlignmentDirectional.centerStart,
                       width: 300,
@@ -287,6 +291,26 @@ class LoginPage extends StatelessWidget {
                     color: Colors.white,
                     textColor: Colors.black,
                     onPressed: () {},
+                  ),*/
+
+                  //SECCION DE BTNS AUTH
+
+                  SignInButton(
+                    Buttons.Facebook,
+                    onPressed: () =>
+                        Navigator.pushReplacementNamed(context, 'register'),
+                    text: 'Continuar con Facebook',
+                  ),
+                  SizedBox(height: 5),
+                  SignInButton(
+                    Buttons.Google,
+                    onPressed: () =>
+                        Navigator.pushReplacementNamed(context, 'register'),
+                    // shape: RoundedRectangleBorder(
+                    //   borderRadius: BorderRadius.circular(20),
+                    // ),
+                    text: 'Continuar con Google',
+                    //text: ,
                   ),
                 ],
               ),
@@ -350,7 +374,7 @@ class _ThirdCircle extends StatelessWidget {
       right: _size.width * 0.15,
       child: FadeIn(
         delay: Duration(milliseconds: 2000),
-        child: CircleWidget(rad: 220, color: purpleLight),
+        child: CircleWidget(rad: 220, color: orangeGeneric),
       ),
     );
   }

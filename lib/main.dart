@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:prompt_student_mobile/src/utils/theme.dart';
 
+import 'package:prompt_student_mobile/src/pages/register_page.dart';
 import 'package:prompt_student_mobile/src/pages/historial_page.dart';
 import 'package:prompt_student_mobile/src/pages/home_page.dart';
 import 'package:prompt_student_mobile/src/pages/login_page.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         'login': (BuildContext context) => LoginPage(),
         'home': (BuildContext context) => HomePage(),
         'historial': (BuildContext context) => HistorialPage(),
+        'register': (BuildContext context) => RegisterPage(),
       },
       initialRoute: 'login',
       /*theme: ThemeData(
@@ -48,7 +50,8 @@ class MyApp extends StatelessWidget {
       ),*/
       theme: themeLight(),
       darkTheme: themeDark(),
-      themeMode: ThemeMode.system,
+      //themeMode: (MediaQuery.of(context).platformBrightness == Brightness.dark) ? ThemeMode.dark : ThemeMode.light,
+      //themeMode: ThemeMode.dark,
     );
   }
 }
